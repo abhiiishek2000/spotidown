@@ -3,31 +3,28 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/guide", "destination": "/install.html" },
-    { "source": "/install", "destination": "/install.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/download", "destination": "/downloads/spotidown.apk" }
+    {
+      "source": "/guide",
+      "destination": "/install.html"
+    },
+    {
+      "source": "/install",
+      "destination": "/install.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    }
   ],
   "headers": [
-    {
-      "source": "/(downloads|download)/(.*)",
-      "headers": [
-        {
-          "key": "Content-Disposition",
-          "value": "attachment; filename=\"spotidown.apk\""
-        },
-        {
-          "key": "Content-Type",
-          "value": "application/vnd.android.package-archive"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=3600"
-        }
-      ]
-    },
     {
       "source": "/(.*)",
       "headers": [
@@ -48,6 +45,18 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/download",
+      "destination": "https://5994300901899.gumroad.com/l/checkout",
+      "permanent": false
+    },
+    {
+      "source": "/downloads/:path*",
+      "destination": "https://5994300901899.gumroad.com/l/checkout",
+      "permanent": false
     }
   ]
 }

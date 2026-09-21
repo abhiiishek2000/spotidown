@@ -22,9 +22,6 @@
   --spotify-green-hover: #1ed760;
   --spotify-green-glow: rgba(29, 185, 84, 0.35);
 
-  --coffee-yellow: #ffdd00;
-  --coffee-hover: #ebcc00;
-  --coffee-glow: rgba(255, 221, 0, 0.35);
 
   --text-main: #ffffff;
   --text-muted: #a3b8aa;
@@ -46,7 +43,6 @@
 
   --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   --shadow-glow: 0 0 35px -5px var(--primary-glow);
-  --shadow-coffee: 0 0 30px -5px var(--coffee-glow);
 }
 
 /* Base & Reset */
@@ -280,18 +276,6 @@ img {
   background: var(--primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px var(--primary-glow-strong);
-}
-
-.btn-coffee {
-  background: var(--coffee-yellow);
-  color: #000000;
-  box-shadow: 0 4px 14px var(--coffee-glow);
-}
-
-.btn-coffee:hover, .btn-coffee:active {
-  background: var(--coffee-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px var(--coffee-glow);
 }
 
 .btn-secondary {
@@ -921,7 +905,7 @@ img {
   line-height: 1.5;
 }
 
-/* Direct APK Download Section */
+/* Purchase Section */
 .download-box {
   background: linear-gradient(135deg, rgba(20, 46, 28, 0.95) 0%, rgba(13, 31, 19, 0.98) 100%);
   border: 1.5px solid var(--border-gold);
@@ -965,67 +949,6 @@ img {
 .spec-item strong {
   color: var(--text-main);
   display: block;
-}
-
-/* Buy Me A Coffee Donation Section */
-.coffee-section {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 221, 0, 0.08) 0%, transparent 70%);
-}
-
-.coffee-card {
-  background: linear-gradient(135deg, #182516 0%, #111d13 100%);
-  border: 1.5px solid rgba(255, 221, 0, 0.4);
-  border-radius: var(--radius-xl);
-  padding: 32px 18px;
-  text-align: center;
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), var(--shadow-coffee);
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .coffee-card {
-    padding: 44px 32px;
-  }
-}
-
-.coffee-icon-large {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-  display: inline-block;
-}
-
-.coffee-tiers {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin: 20px auto;
-  max-width: 480px;
-}
-
-@media (min-width: 600px) {
-  .coffee-tiers {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.coffee-tier-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 221, 0, 0.3);
-  border-radius: var(--radius-md);
-  padding: 10px 8px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--coffee-yellow);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-height: 44px;
-}
-
-.coffee-tier-btn:hover, .coffee-tier-btn:active {
-  background: var(--coffee-yellow);
-  color: #000000;
-  transform: translateY(-2px);
 }
 
 /* FAQ Accordion */
@@ -1283,7 +1206,4 @@ img {
     display: block;
   }
 
-  .nav-actions .btn-coffee {
-    display: none;
-  }
 }

@@ -1,6 +1,6 @@
 /**
  * SpotiDown Website Scripts
- * Mobile navigation drawer, FAQ accordions, download triggers, and Buy Me a Coffee routing
+ * Mobile navigation drawer, FAQ accordions, and purchase link tracking
  * Includes Google Analytics 4 (GA4) Event Tracking
  */
 
@@ -54,47 +54,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Buy Me a Coffee Custom Amount buttons + GA4 Event Tracking
-  const coffeeTiers = document.querySelectorAll('.coffee-tier-btn');
-  coffeeTiers.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const amount = btn.getAttribute('data-amount');
-      const baseCoffeeUrl = 'https://buymeacoffee.com/spotidown';
-      const targetUrl = amount ? `${baseCoffeeUrl}?amount=${amount}` : baseCoffeeUrl;
-
-      // Track GA4 Donation Click
+  // 3. Purchase Link GA4 Event Tracking
+  document.querySelectorAll('.btn-purchase-trigger').forEach(link => {
+    link.addEventListener('click', () => {
       if (typeof gtag === 'function') {
-        gtag('event', 'donate_click', {
-          event_category: 'Donation',
-          event_label: `Buy Me a Coffee $${amount || '3'}`,
-          value: amount ? parseFloat(amount) : 3
-        });
-      }
-
-      window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    });
-  });
-
-  // 4. Download Trigger & Feedback Toast + GA4 Event Tracking
-  const downloadBtns = document.querySelectorAll('.btn-download-trigger');
-  downloadBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Track GA4 APK Download Event
-      if (typeof gtag === 'function') {
-        gtag('event', 'download_apk', {
+        gtag('event', 'purchase_click', {
           event_category: 'Engagement',
-          event_label: 'SpotiDown v1.3.4 APK',
-          file_name: 'spotidown.apk'
+          event_label: 'SpotiDown Gumroad Checkout',
+          link_url: link.href,
+          transport_type: 'beacon'
         });
       }
-
-      setTimeout(() => {
-        showDownloadToast();
-      }, 700);
     });
   });
 
-  // 5. Screenshot Lightbox Modal Logic
+  // 4. Screenshot Lightbox Modal Logic
   initScreenshotLightbox();
 });
 
@@ -221,47 +195,4 @@ function closeDrawer() {
     menuToggleBtn.textContent = '☰';
     menuToggleBtn.setAttribute('aria-expanded', 'false');
   }
-}
-
-function showDownloadToast() {
-  if (document.getElementById('download-toast')) return;
-
-  const toast = document.createElement('div');
-  toast.id = 'download-toast';
-  toast.style.cssText = `
-    position: fixed;
-    bottom: 16px;
-    right: 16px;
-    left: 16px;
-    max-width: 360px;
-    margin: 0 auto;
-    background: #14281a;
-    border: 1.5px solid #eeda2b;
-    border-radius: 16px;
-    padding: 12px 16px;
-    color: #ffffff;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.7), 0 0 20px rgba(238, 218, 43, 0.3);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Inter', sans-serif;
-  `;
-
-  toast.innerHTML = `
-    <span style="font-size: 1.4rem; flex-shrink: 0;">📥</span>
-    <div style="flex: 1; min-width: 0;">
-      <div style="font-weight: 700; font-size: 0.9rem; color: #eeda2b;">Download Started!</div>
-      <div style="font-size: 0.78rem; color: #a3b8aa;">Need help? <a href="/install" style="text-decoration: underline; color: #ffffff; font-weight: 600;">View Install Guide →</a></div>
-    </div>
-    <button onclick="this.parentElement.remove()" style="background: none; border: none; color: #a3b8aa; font-size: 1.3rem; cursor: pointer; padding: 0 4px; line-height: 1;">&times;</button>
-  `;
-
-  document.body.appendChild(toast);
-
-  setTimeout(() => {
-    if (toast.parentElement) {
-      toast.remove();
-    }
-  }, 8000);
 }
