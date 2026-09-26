@@ -1207,3 +1207,71 @@ img {
   }
 
 }
+
+/* Purchase reassurance under hero CTA */
+.hero-purchase-note {
+  margin: -14px auto 28px;
+  max-width: 520px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.desktop-only-note {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .desktop-only-note {
+    display: block;
+    margin-top: 4px;
+  }
+}
+
+/* Install guide: platform switcher & headings */
+.platform-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.platform-tab {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border-card);
+  background: var(--bg-glass-card);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.platform-tab:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.platform-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 48px 0 18px;
+  scroll-margin-top: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.platform-heading:first-child {
+  margin-top: 8px;
+}
+
+.platform-heading span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: inherit;
+}

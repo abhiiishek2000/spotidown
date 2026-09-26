@@ -64,6 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
           link_url: link.href,
           transport_type: 'beacon'
         });
+        gtag('event', 'begin_checkout', {
+          currency: 'USD',
+          value: 4.99,
+          items: [{ item_id: 'spotidown-apk', item_name: 'SpotiDown Premium APK', price: 4.99, quantity: 1 }],
+          cta_location: link.closest('header, section, footer')?.id || link.closest('header, section, footer')?.tagName.toLowerCase() || 'unknown',
+          transport_type: 'beacon'
+        });
       }
     });
   });
@@ -74,31 +81,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const screenshotsData = [
   {
-    img: '/images/screenshot-home-preview.jpg',
+    img: '/images/screenshot-home-preview.jpg?v=2',
     tag: '1. Paste & Resolve',
     title: 'Instant Song Resolver',
     desc: 'Paste any Spotify song URL and immediately preview track artwork, title, artist, and 1-tap download in 320kbps MP3.'
   },
   {
-    img: '/images/screenshot-playlist-download.jpg',
+    img: '/images/screenshot-playlist-download.jpg?v=2',
     tag: '2. Batch Download',
     title: 'Full Playlist Downloader',
     desc: 'Save entire 50+ song playlists or albums in a single tap with sequential background downloading and zero throttling.'
   },
   {
-    img: '/images/screenshot-music-player.jpg',
+    img: '/images/screenshot-music-player.jpg?v=2',
     tag: '3. Offline Player',
     title: 'Built-In Media Player',
     desc: 'Listen to all your saved tracks offline with HD album art, scrub controls, background audio playback, and lock-screen controls.'
   },
   {
-    img: '/images/screenshot-download-history.jpg',
+    img: '/images/screenshot-download-history.jpg?v=2',
     tag: '4. History & Library',
     title: 'Offline Music Library',
     desc: 'Search, filter by artist/recent, and manage all your saved tracks directly in your device storage (/storage/emulated/0/Music/).'
   },
   {
-    img: '/images/screenshot-queue-inprogress.jpg',
+    img: '/images/screenshot-queue-inprogress.jpg?v=2',
     tag: '5. Live Queue',
     title: 'Background Progress Queue',
     desc: 'Monitor live downloading progress with smart queueing that prevents phone lag, preserves battery, and prevents corrupt files.'
