@@ -4,10 +4,6 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/guide",
-      "destination": "/install.html"
-    },
-    {
       "source": "/install",
       "destination": "/install.html"
     },
@@ -48,6 +44,11 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/guide",
+      "destination": "/install",
+      "permanent": true
+    },
     {
       "source": "/download",
       "destination": "https://5994300901899.gumroad.com/l/checkout",
