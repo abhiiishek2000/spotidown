@@ -109,6 +109,24 @@ const screenshotsData = [
     tag: '5. Live Queue',
     title: 'Background Progress Queue',
     desc: 'Monitor live downloading progress with smart queueing that prevents phone lag, preserves battery, and prevents corrupt files.'
+  },
+  {
+    img: '/images/desktop-download.jpg?v=1',
+    tag: 'Windows & Mac',
+    title: 'Whole Playlists on PC & Mac',
+    desc: 'Paste a Spotify playlist or album link and download every track with one click.'
+  },
+  {
+    img: '/images/desktop-queue.jpg?v=1',
+    tag: 'Windows & Mac',
+    title: 'Fast Parallel Downloads',
+    desc: 'Two tracks download at once with live progress. Cancel anything, anytime.'
+  },
+  {
+    img: '/images/desktop-library.jpg?v=1',
+    tag: 'Windows & Mac',
+    title: 'Real 320kbps MP3 Files',
+    desc: 'Every song saved to your Music folder with title, artist and album art.'
   }
 ];
 
